@@ -5,419 +5,198 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="icon" type="image/png" href="assets/logo.png">
 <title>Joshua Sambere - Portfolio</title>
-<meta name="description" content="Full-stack developer and hardware technician based in Binalbagan, Negros Occidental, Philippines. Specializing in HTML, CSS, JavaScript, PHP, Java, and hardware troubleshooting."/>
+<meta name="description" content="Full-stack developer and hardware technician based in Binalbagan, Negros Occidental, Philippines."/>
 <meta property="og:title" content="Joshua Sambere — Developer & Tech Specialist"/>
 <meta property="og:description" content="Full-stack developer and hardware technician based in Binalbagan, Negros Occidental, Philippines."/>
 <meta property="og:type" content="website"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="loader" id="loader"><span id="loadNum">0</span><i class="loader-bar"></i></div>
+<div class="cursor" id="cursor"></div>
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+<div class="ring" id="ring"></div>
+<div class="toast" id="toast" role="status"></div>
+<button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" id="toTopArc"/></svg><i class="fas fa-arrow-up"></i></button>
+<div class="palette" id="palette" aria-hidden="true"><div class="pal-box"><input id="palInput" placeholder="Jump to a section or run an action…" aria-label="Command menu"/><ul id="palList"></ul><p class="pal-hint">↑ ↓ to move · Enter to run · Esc to close</p></div></div>
 
-<div class="blob blob-1"></div>
-<div class="blob blob-2"></div>
-
-<div class="available-strip">✦ Available for freelance &amp; remote work — Let's build something together</div>
-
-<!-- NAV -->
 <nav id="navbar">
-  <div class="nav-logo">JS<span>.</span></div>
+  <a href="#home" class="nav-logo">JS<span>.</span></a>
   <div class="nav-links" id="navLinks">
-    <a href="#home" class="active">Home</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="btn-hire">Hire Me</a>
+    <a href="#home" class="active">Home</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a>
+    <button class="icon-btn" id="kBtn" aria-label="Open command menu (Ctrl K)"><i class="fas fa-magnifying-glass"></i></button>
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle light and dark theme"><i class="fas fa-moon"></i></button>
+    <a href="#contact" class="btn-hire magnetic">Hire Me</a>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
 </nav>
 
-<!-- ===== HERO ===== -->
 <section id="home">
+  <div class="hero-glow"></div>
   <div class="hero-flex-container">
-    <!-- Left side: Text content -->
     <div class="hero-left">
-      <div class="hero-badge fade-up visible">
-        <span class="dot"></span>
-        Open to opportunities
-      </div>
-      <h1 class="hero-title fade-up visible" style="transition-delay:0.1s">
-        <span class="line1">Joshua Sambere</span><br/>
-        <span class="line2">Developer &</span><br/>
-        <span class="line1">Tech Specialist</span>
+      <div class="hero-badge"><span class="dot"></span>Available for freelance &amp; remote work</div>
+      <h1 class="hero-title">
+        <span class="mask"><span class="line1">Joshua</span></span>
+        <span class="mask"><span class="line1 outline">Sambere</span></span>
+        <span class="mask"><span class="line2">Developer &amp; Tech Specialist</span></span>
       </h1>
-      <p class="hero-desc fade-up visible" style="transition-delay:0.2s">
-        Full-stack web developer and hardware technician based in Binalbagan, Negros Occidental, Philippines. I build fast, clean web apps and solve tough technical problems — from frontend to backend to bare metal.
-      </p>
-      <div class="hero-ctas fade-up visible" style="transition-delay:0.3s">
-        <a href="#projects" class="btn-primary"><i class="fas fa-rocket"></i> View My Work</a>
-        <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Get In Touch</a>
-        <a href="assets/Resume.pdf" class="btn-outline" download><i class="fas fa-download"></i> Resume</a>
+      <p class="roles">I'm a <b id="role">web developer</b><i class="caret"></i></p>
+      <p class="hero-desc">Full-stack web developer and hardware technician from Binalbagan, Negros Occidental. I build fast, clean web apps and fix tough technical problems — from frontend to backend to bare metal.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary magnetic"><i class="fas fa-rocket"></i> View My Work</a>
+        <a href="#contact" class="btn-outline magnetic"><i class="fas fa-envelope"></i> Get In Touch</a>
       </div>
-      <div class="hero-stats fade-up visible" style="transition-delay:0.4s">
-        <div>
-          <div class="stat-num">Fresh Graduate</div>
-          <div class="stat-label">St. Cecilia College-Cebu,Inc. Philippines</div>
-        </div>
-      </div>
+      <div class="hero-stats"><div class="stat-num">1 Year of Experience</div><div class="stat-label">Junior IT Specialist</div></div>
     </div>
-    <!-- Right side: Image -->
-    <div class="hero-right fade-up visible" style="transition-delay:0.5s">
-      <div class="profile-img-wrapper">
-        <img src="assets/picture.png" alt="Joshua Sambere" class="profile-img" />
+    <div class="hero-right">
+      <div class="profile-img-wrapper" data-tilt>
+        <img src="assets/picture.png" alt="Joshua Sambere" class="profile-img"/>
+        <div class="portrait-chip"><span class="dot"></span> Code · Create · Repair</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SKILLS ===== -->
+<div class="stats-row">
+  <div class="reveal"><b data-count="1">0</b><span>Year of experience</span></div>
+  <div class="reveal"><b data-count="6">0</b><span>Services offered</span></div>
+  <div class="reveal"><b data-count="15">0</b><span>Tools &amp; technologies</span></div>
+  <div class="reveal"><b data-count="24" data-suffix="h">0</b><span>Typical reply time</span></div>
+</div>
+<div class="marquee" aria-hidden="true"><div class="marquee-track">
+  <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>PHP</span><span>Laravel</span><span>Java</span><span>MySQL</span><span>Supabase</span><span>Hardware</span>
+  <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>PHP</span><span>Laravel</span><span>Java</span><span>MySQL</span><span>Supabase</span><span>Hardware</span>
+</div></div>
+
 <section id="skills">
-  <p class="section-label fade-up">Tech Stack</p>
-  <h2 class="section-title fade-up">What I Work With</h2>
-  <div class="skills-grid stagger fade-up">
-    <div class="skill-card">
-      <i class="fab fa-html5" style="color:#e34f26"></i>
-      <div class="skill-name">HTML5</div>
-      <div class="skill-level">Semantic & Accessible</div>
-    </div>
-    <div class="skill-card">
-      <i class="fab fa-css3-alt" style="color:#264de4"></i>
-      <div class="skill-name">CSS3</div>
-      <div class="skill-level">Flexbox, Grid, Animations</div>
-    </div>
-    <div class="skill-card">
-      <i class="fab fa-js" style="color:#f7df1e"></i>
-      <div class="skill-name">JavaScript</div>
-      <div class="skill-level">ES6+, DOM, APIs</div>
-    </div>
-    <div class="skill-card">
-      <i class="fab fa-php" style="color:#777bb4"></i>
-      <div class="skill-name">PHP</div>
-      <div class="skill-level">Backend, Forms, MySQL</div>
-    </div>
-    <div class="skill-card">
-      <i class="fab fa-java" style="color:#ed8b00"></i>
-      <div class="skill-name">Java</div>
-      <div class="skill-level">OOP, Desktop Apps</div>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-database" style="color:#00b4db"></i>
-      <div class="skill-name">MySQL</div>
-      <div class="skill-level">Database Design</div>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-leaf" style="color:#47A248"></i>
-      <div class="skill-name">MongoDB</div>
-      <div class="skill-level">NoSQL, Document Store</div>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-microchip" style="color:#00e5a0"></i>
-      <div class="skill-name">Hardware</div>
-      <div class="skill-level">Build, Repair, Upgrade</div>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-tools" style="color:#ff6b6b"></i>
-      <div class="skill-name">Troubleshooting</div>
-      <div class="skill-level">Diagnostic & Support</div>
-    </div>
-  </div>
+  <p class="section-label reveal">Tech Stack</p>
+  <h2 class="section-title reveal">What I work with</h2>
+  <p class="section-subtitle reveal">Pick a category to see how I use each tool and how comfortable I am with it.</p>
+  <div class="sk-ui reveal"><div class="sk-tabs" id="skTabs" role="tablist" aria-label="Skill categories"></div><div class="sk-panel" id="skPanel" role="tabpanel" aria-live="polite"></div></div>
 </section>
 
-<!-- ===== PROJECTS ===== -->
 <section id="projects">
-  <p class="section-label fade-up">Portfolio</p>
-  <h2 class="section-title fade-up">Selected Projects</h2>
-  <p class="section-subtitle fade-up">A selection of things I've built — web apps, tools, and hardware projects.</p>
-  <div class="filter-row fade-up">
+  <p class="section-label reveal">Portfolio</p>
+  <h2 class="section-title reveal">Selected projects</h2>
+  <p class="section-subtitle reveal">Web apps, tools, and hardware projects.</p>
+  <div class="filter-row reveal">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="web">Web</button>
-    <!-- <button class="filter-btn" data-filter="php">PHP</button>
-    <button class="filter-btn" data-filter="java">Java</button> -->
     <button class="filter-btn" data-filter="hardware">Hardware</button>
   </div>
-  <div class="projects-grid stagger" id="projectsGrid">
-
-    <div class="project-card fade-up" data-cat="web">
-    <div class="project-thumb">🛒</div>
-    <div class="project-body">
-        <div class="project-tags">
-        <span class="project-tag">HTML</span>
-        <span class="project-tag">CSS</span>
-        <span class="project-tag">JS</span>
-        </div>
-        <h3 class="project-title">ShopEase - Your Modern Online Store - Landing age</h3>
-        <p class="project-desc">
-        Discover the latest in tech, fashion, and accessories with ShopEase. Enjoy a seamless shopping experience with a sleek UI, fast navigation, product favorites, and a functional cart – all built for speed and convenience.
-        </p>
-        <div class="project-links">
-        <a href="https://shopease-lake.vercel.app/" class="proj-link primary" target="_blank" rel="noopener">
-            <i class="fas fa-external-link-alt"></i> Live Demo
-        </a>
-        <!-- <a href="#" class="proj-link"><i class="fab fa-github"></i> GitHub</a> -->
-        </div>
-    </div>
-    </div>
-
-    <!-- <div class="project-card fade-up" data-cat="php">
-      <div class="project-thumb">📋</div>
+  <div class="projects-grid" id="projectsGrid">
+    <div class="project-card reveal" data-cat="web">
+      <div class="project-thumb">🛒</div>
       <div class="project-body">
-        <div class="project-tags"><span class="project-tag">PHP</span><span class="project-tag">MySQL</span><span class="project-tag">CSS</span></div>
-        <h3 class="project-title">Student Record System</h3>
-        <p class="project-desc">CRUD application for managing student records with login authentication, search filters, and printable reports via PHP & MySQL.</p>
-        <div class="project-links">
-          <a href="#" class="proj-link primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-          <a href="#" class="proj-link"><i class="fab fa-github"></i> GitHub</a>
-        </div>
+        <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JS</span></div>
+        <h3 class="project-title">ShopEase — Your Modern Online Store</h3>
+        <p class="project-desc">Discover the latest in tech, fashion, and accessories. A sleek UI, fast navigation, product favorites, and a functional cart – built for speed and convenience.</p>
+        <div class="project-links"><a href="https://shopease-lake.vercel.app/" class="proj-link primary" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Live Demo</a></div>
       </div>
     </div>
-
-    <div class="project-card fade-up" data-cat="java">
-      <div class="project-thumb">☕</div>
-      <div class="project-body">
-        <div class="project-tags"><span class="project-tag">Java</span><span class="project-tag">Swing</span><span class="project-tag">OOP</span></div>
-        <h3 class="project-title">Inventory Management App</h3>
-        <p class="project-desc">Desktop Java application with Swing GUI for managing store inventory — add, edit, delete items with stock level alerts.</p>
-        <div class="project-links">
-          <a href="#" class="proj-link primary"><i class="fas fa-download"></i> Download</a>
-          <a href="#" class="proj-link"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="project-card fade-up" data-cat="hardware">
+    <div class="project-card reveal" data-cat="hardware">
       <div class="project-thumb">🖥️</div>
       <div class="project-body">
         <div class="project-tags"><span class="project-tag">Hardware</span><span class="project-tag">Repair</span></div>
         <h3 class="project-title">PC Build & Optimization</h3>
         <p class="project-desc">Custom gaming PC assembly and BIOS optimization — component selection, thermal management, cable management, benchmark testing.</p>
-        <div class="project-links">
-          <a href="#" class="proj-link primary"><i class="fas fa-images"></i> View Photos</a>
-          <a href="#contact" class="proj-link"><i class="fas fa-envelope"></i> Inquire</a>
-        </div>
+        <div class="project-links"><a href="#" class="proj-link primary"><i class="fas fa-images"></i> View Photos</a><a href="#contact" class="proj-link"><i class="fas fa-envelope"></i> Inquire</a></div>
       </div>
     </div>
-
-    <!-- <div class="project-card fade-up" data-cat="web php">
-      <div class="project-thumb">📝</div>
-      <div class="project-body">
-        <div class="project-tags"><span class="project-tag">PHP</span><span class="project-tag">JS</span><span class="project-tag">CSS</span></div>
-        <h3 class="project-title">Portfolio Blog Platform</h3>
-        <p class="project-desc">A lightweight blog CMS built from scratch in PHP — create, edit, publish posts, with category filtering and SEO-friendly URLs.</p>
-        <div class="project-links">
-          <a href="#" class="proj-link primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-          <a href="#" class="proj-link"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="project-card fade-up" data-cat="hardware">
+    <div class="project-card reveal" data-cat="hardware">
       <div class="project-thumb">🔧</div>
       <div class="project-body">
         <div class="project-tags"><span class="project-tag">Hardware</span><span class="project-tag">Networking</span></div>
         <h3 class="project-title">Network Setup & Troubleshooting</h3>
-        <p class="project-desc">Configured LAN/WiFi networks for small offices — router setup, IP planning, firewall rules, and troubleshooting connectivity issues.</p>
-        <div class="project-links">
-          <a href="#contact" class="proj-link primary"><i class="fas fa-tools"></i> Request Service</a>
-        </div>
+        <p class="project-desc">Configured LAN/WiFi networks for small offices — router setup, IP planning, firewall rules, and connectivity troubleshooting.</p>
+        <div class="project-links"><a href="#contact" class="proj-link primary"><i class="fas fa-tools"></i> Request Service</a></div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
 <section id="about">
   <div class="about-grid">
-    <div class="about-photo fade-up">
-      <div class="about-photo-inner">👨‍💻</div>
-      <div class="about-photo-badge">Based in<br/>Binalbagan PH 🇵🇭</div>
-    </div>
-    <div class="about-content fade-up" style="transition-delay:0.15s">
+    <div class="about-photo reveal"><div class="about-photo-inner"><img src="assets/picture.png" alt="Joshua Sambere at his graduation"/></div></div>
+    <div class="about-content reveal">
       <p class="section-label">About Me</p>
-      <h2 class="section-title">I Build Things<br/>That Work.</h2>
-      <p class="about-bio">
-        I'm a self-taught developer and hardware technician from Binalbagan, Negros Occidental, Philippines. I started with curiosity about how computers work — from the circuit board up to the web browser — and that's still what drives me.
-        <br/><br/>
-        My work covers the full spectrum: writing clean HTML/CSS/JS interfaces, building PHP backends and databases, developing Java desktop apps, and getting hands-on with hardware repair, PC builds, and network troubleshooting.
-        <br/><br/>
-        I'm available for freelance projects, remote work, and tech consultations.
-      </p>
+      <h2 class="section-title">I build things that work.</h2>
+      <p class="about-bio">I'm a self-taught developer and hardware technician from Binalbagan, Negros Occidental. I started with curiosity about how computers work — from the circuit board up to the web browser — and that's still what drives me.<br/><br/>My work covers the full spectrum: clean HTML/CSS/JS interfaces, PHP backends and databases, Java desktop apps, hardware repair, PC builds, and network troubleshooting.<br/><br/>I'm available for freelance projects, remote work, and tech consultations.</p>
       <div class="skill-bars">
-        <div class="skill-bar-item">
-          <div class="skill-bar-head"><span>HTML / CSS</span><span>95%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="95"></div></div>
-        </div>
-        <div class="skill-bar-item">
-          <div class="skill-bar-head"><span>JavaScript</span><span>82%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="82"></div></div>
-        </div>
-        <div class="skill-bar-item">
-          <div class="skill-bar-head"><span>PHP / MySQL</span><span>78%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="78"></div></div>
-        </div>
-        <div class="skill-bar-item">
-          <div class="skill-bar-head"><span>Java</span><span>70%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="70"></div></div>
-        </div>
-        <div class="skill-bar-item">
-          <div class="skill-bar-head"><span>Hardware / Networking</span><span>88%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="88"></div></div>
-        </div>
+        <div class="skill-bar-item"><div class="skill-bar-head"><span>HTML / CSS</span><span>95%</span></div><div class="bar-track"><div class="bar-fill" data-width="95"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-head"><span>JavaScript</span><span>82%</span></div><div class="bar-track"><div class="bar-fill" data-width="82"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-head"><span>PHP / MySQL</span><span>78%</span></div><div class="bar-track"><div class="bar-fill" data-width="78"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-head"><span>Java</span><span>70%</span></div><div class="bar-track"><div class="bar-fill" data-width="70"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-head"><span>Hardware / Networking</span><span>88%</span></div><div class="bar-track"><div class="bar-fill" data-width="88"></div></div></div>
       </div>
-      <a href="assets/Resume.png" download class="btn-primary" style="display:inline-flex">
-        <i class="fas fa-file-pdf"></i> Download Resume
-      </a>
     </div>
   </div>
 </section>
 
-<!-- ===== SERVICES ===== -->
 <section id="services">
-  <p class="section-label fade-up">What I Offer</p>
-  <h2 class="section-title fade-up">Services</h2>
-  <p class="section-subtitle fade-up">From websites to hardware — here's how I can help.</p>
-  <div class="services-grid stagger fade-up">
-    <div class="service-card">
-      <div class="service-icon"><i class="fas fa-code"></i></div>
-      <h3 class="service-title">Web Development</h3>
-      <p class="service-desc">Responsive websites built with HTML, CSS, and JavaScript. Clean, fast, and mobile-ready for any screen size.</p>
-      <div class="service-price">Starting at ₱1,500</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><i class="fas fa-server"></i></div>
-      <h3 class="service-title">PHP Backend & CMS</h3>
-      <p class="service-desc">Custom PHP applications, contact forms, login systems, admin panels, and MySQL database design.</p>
-      <div class="service-price">Starting at ₱2,500</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><i class="fab fa-java"></i></div>
-      <h3 class="service-title">Java Desktop Apps</h3>
-      <p class="service-desc">Desktop applications for Windows — inventory systems, school management tools, calculators, and utilities.</p>
-      <div class="service-price">Starting at ₱3,000</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><i class="fas fa-microchip"></i></div>
-      <h3 class="service-title">PC Build & Repair</h3>
-      <p class="service-desc">Custom PC assembly, component upgrades, hardware diagnostics, motherboard repair, and performance optimization.</p>
-      <div class="service-price">Starting at ₱300 (labor)</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><i class="fas fa-tools"></i></div>
-      <h3 class="service-title">IT Troubleshooting</h3>
-      <p class="service-desc">OS reinstall, virus removal, slow PC fixes, driver issues, BIOS configuration, and general tech support.</p>
-      <div class="service-price">Starting at ₱200</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><i class="fas fa-wifi"></i></div>
-      <h3 class="service-title">Network Setup</h3>
-      <p class="service-desc">Home and office LAN/WiFi setup, router configuration, IP planning, and connection troubleshooting.</p>
-      <div class="service-price">Starting at ₱500</div>
-    </div>
-  </div>
+  <p class="section-label reveal">What I Offer</p>
+  <h2 class="section-title reveal">Services and pricing</h2>
+  <p class="section-subtitle reveal">Clear starting prices in Philippine pesos. Send me your idea and I'll confirm the final quote within 24 hours.</p>
+  <div class="svc-tabs reveal" id="svcTabs" role="tablist" aria-label="Service type"></div>
+  <div class="svc-grid" id="svcGrid"></div>
+  <ul class="svc-terms reveal">
+    <li><i class="fas fa-bolt"></i>Quote within 24 hours</li>
+    <li><i class="fas fa-wallet"></i>50% to start, balance on delivery</li>
+    <li><i class="fas fa-rotate"></i>2 rounds of revisions included</li>
+    <li><i class="fas fa-circle-info"></i>Prices are starting points. Final cost depends on scope.</li>
+  </ul>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="contact-grid">
-    <div class="contact-info fade-up">
+    <div class="contact-info reveal">
       <p class="section-label">Get In Touch</p>
-      <h2 class="section-title">Let's Work<br/>Together.</h2>
-      <p class="section-subtitle" style="margin-bottom:0">Have a project in mind or need a tech fix? Send me a message — I respond within 24 hours.</p>
+      <h2 class="section-title">Let's work together.</h2>
+      <p class="section-subtitle">Have a project in mind or need a tech fix? Send me a message — I reply within 24 hours.</p>
       <div class="contact-items">
-        <div class="contact-item">
-          <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="contact-item-text">
-            <strong>Location</strong>
-            <span>Binalbagan, Negros Occidental, Philippines</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
-          <div class="contact-item-text">
-            <strong>Email</strong>
-            <span>joshuasambere0313@email.com</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
-          <div class="contact-item-text">
-            <strong>Response Time</strong>
-            <span>Usually within 24 hours</span>
-          </div>
-        </div>
+        <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-item-text"><strong>Location</strong><span>Binalbagan, Negros Occidental, Philippines</span></div></div>
+        <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-envelope"></i></div><div class="contact-item-text"><strong>Email</strong><span>joshuasambere0313@gmail.com</span></div><button class="copy" data-copy="joshuasambere0313@gmail.com">Copy</button></div>
+        <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-clock"></i></div><div class="contact-item-text"><strong>Response Time</strong><span>Usually within 24 hours</span></div></div>
       </div>
       <div class="socials">
         <a href="https://github.com/daiki0918" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <!-- <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a> -->
-        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <!-- <a href="#" class="social-link" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a> -->
+        <a href="https://www.facebook.com/juswa0313" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
       </div>
     </div>
-
-    <div class="contact-form fade-up" style="transition-delay:0.2s" id="contactFormWrap">
+    <div class="contact-form reveal" id="contactFormWrap">
       <form id="contactForm" novalidate>
+        <input type="text" id="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true"/>
         <div class="form-row">
-          <div class="form-group">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" placeholder="Juan" required/>
-          </div>
-          <div class="form-group">
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" placeholder="dela Cruz" required/>
-          </div>
+          <div class="form-group"><label for="fname">First Name</label><input type="text" id="fname" placeholder="Juan" required/></div>
+          <div class="form-group"><label for="lname">Last Name</label><input type="text" id="lname" placeholder="dela Cruz" required/></div>
         </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="juan@email.com" required/>
+        <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="juan@email.com" required/></div>
+        <div class="form-group"><label for="service">Service Needed</label>
+          <select id="service"><option value="">Select a service...</option></select>
         </div>
-        <div class="form-group">
-          <label for="service">Service Needed</label>
-          <select id="service">
-            <option value="">Select a service...</option>
-            <option>Web Development</option>
-            <option>PHP Backend / CMS</option>
-            <option>Java Desktop App</option>
-            <option>PC Build / Repair</option>
-            <option>IT Troubleshooting</option>
-            <option>Network Setup</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell me about your project or issue..." required></textarea>
-        </div>
-        <button type="submit" class="btn-send">
-          <i class="fas fa-paper-plane"></i> Send Message
-        </button>
+        <div class="form-group"><label for="message">Message</label><textarea id="message" placeholder="Tell me about your project or issue..." required></textarea></div>
+        <p class="form-error" id="formError" role="alert"></p>
+        <button type="submit" class="btn-send magnetic"><i class="fas fa-paper-plane"></i> Send Message</button>
       </form>
-      <div class="form-success" id="formSuccess">
-        <i class="fas fa-check-circle"></i>
-        <h3>Message Sent!</h3>
-        <p>Thanks for reaching out. I'll get back to you within 24 hours.</p>
-      </div>
+      <div class="form-success" id="formSuccess"><i class="fas fa-check-circle"></i><h3>Message sent</h3><p>Thanks for reaching out. I'll get back to you within 24 hours.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
-  <div class="footer-logo">JS<span>.</span></div>
-  <div class="footer-copy">© 2025 Joshua Sambere. Built with HTML, CSS &amp; JS.</div>
-  <div class="footer-links">
-    <a href="#home">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+  <div class="footer-big">Let's build.</div>
+  <div class="footer-row">
+    <div class="footer-logo">JS<span>.</span></div>
+    <div class="footer-copy">© 2025 Joshua Sambere. Built with HTML, CSS &amp; JS.</div>
+    <div class="footer-links"><a href="#home">Home</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
   </div>
 </footer>
-
 <script src="js/jscript.js"></script>
 </body>
 </html>
